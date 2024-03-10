@@ -16,7 +16,7 @@
             {% for field in grid.inputFields %}
                 {% if field.inputType == 'text' %}
                     <div class="input-group mb-1">
-                      <span class="input-group-text">{{ field.inputName }}</span>
+                      <span class="input-group-text w-15">{{ field.inputName }}</span>
                       <input type="text" aria-label="First name" class="form-control">
                       <button class="btn bg-dark text-light" type="button" id="button-addon2">Browse</button>
                     </div>
@@ -24,21 +24,21 @@
 
                 {% if field.inputType == 'number' %}
                     <div class="input-group mb-1 w-25">
-                      <span class="input-group-text">{{ field.inputName }}</span>
+                      <span class="input-group-text w-50">{{ field.inputName }}</span>
                       <input type="number"  aria-label="First name" class="form-control">
                     </div>
                 {% endif %}
 
                 {% if field.inputType == 'float' %}
                     <div class="input-group mb-1 w-25">
-                      <span class="input-group-text">{{ field.inputName }}</span>
+                      <span class="input-group-text w-50">{{ field.inputName }}</span>
                       <input type="number" step="0.01" aria-label="First name" class="form-control">
                     </div>
                 {% endif %}
 
                 {% if field.inputType == 'dropDown' %}
                     <div class="input-group mb-1 w-25 d-flex justify-content-between">
-                      <span class="input-group-text">{{ field.inputName }}</span>
+                      <span class="input-group-text w-15">{{ field.inputName }}</span>
                       <button class="form-control btn bg-dark text-light dropdown-toggle" type="button" data-bs-toggle="dropdown">{{ field.default }}</button>
                       <ul class="dropdown-menu">
                           {% for item in field.dropDownOptions %}
