@@ -10,7 +10,7 @@
 
     {% for grid in grids %}
     <div class="border border-solid-grey rounded-2 p-2 mt-1 {% if forloop.counter == 1 %} mb-4 {% endif %}" >
-        <span class="mx-2">{{ grid.title }}</span>
+        <span class="mx-2"><b>{{ grid.title }}</b></span>
         <form class="py-1 px-1" >
             {% csrf_token %}
             {% for field in grid.inputFields %}
