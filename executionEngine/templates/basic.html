@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>{% block harsh %}{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
     <meta content="" name="descriptison">
     <meta content="" name="keywords">
 
@@ -14,29 +14,52 @@
         .menu-item {
           cursor: pointer;
         }
+        .active {
+            background-color: #d7dde5 !important;
+            border-color: #d7dde5 !important;
+        }
+        .background {
+            background-color: aliceblue;
+        }
+        .no-border {
+            border-width: 0 !important;
+        }
       </style>
 </head>
 <body>
 
-<div class="container bg-danger mt-3">
-  <div class="row">
-    <!-- Left Side Menu -->
-    <div class="col-md-2 bg-primary">
-      <div class="list-group">
-        <a href="{% url 'index' %}" class="list-group-item list-group-item-action menu-item {% if title == 'Home' %} bg-info {% endif %}" >Home HSBC Icon </a>
-        <a href="{% url 'index1' %}" class="list-group-item list-group-item-action menu-item {% if title == 'Page 1' %} bg-info {% endif %}" >Page 1</a>
-        <a href="{% url 'index2' %}" class="list-group-item list-group-item-action menu-item {% if title == 'Page 2' %} bg-info {% endif %}" >Page 2</a>
-        <a href="{% url 'index3' %}" class="list-group-item list-group-item-action menu-item {% if title == 'Page 3' %} bg-info {% endif %}" >Page 3</a>
-        <a href="{% url 'index4' %}" class="list-group-item list-group-item-action menu-item {% if title == 'Page 4' %} bg-info {% endif %}" >Page 4</a>
-      </div>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-2">
+            <a href="{% url 'index' %}" class="list-group-item no-border background menu-item {% if title == 'Home' %} active {% endif %}" >
+                <img src='{% static "images/logo1.png" %}' class="img-thumbnail" >
+            </a>
+        </div>
+        <div class="col-md-10 background align-middle">
+            <h1 class="h-100 d-flex justify-content-center align-items-center">{% block header %}{% endblock %}</h1>
+        </div>
     </div>
-    <!-- Right Side Content Area -->
-    <div class="col-md-10 bg-secondary">
-      <div id="content">
+    <div class="row">
+        <!-- Left Side Menu -->
+        <div class="col-md-2">
+            <a href="{% url 'screen1' %}" class="list-group-item no-border background menu-item {% if title == 'Consolidation & Extrapolation' %} active {% endif %}" >
+                <img src='{% static "images/img1.png" %}' class="img-thumbnail" >
+            </a>
+            <a href="{% url 'screen2' %}" class="list-group-item no-border background menu-item {% if title == 'Page 2' %} active {% endif %}" >
+                <img src='{% static "images/img1.png" %}' class="img-thumbnail" >
+            </a>
+            <a href="{% url 'screen3' %}" class="list-group-item no-border background menu-item {% if title == 'Page 3' %} active {% endif %}" >
+                <img src='{% static "images/img1.png" %}' class="img-thumbnail" >
+            </a>
+            <a href="{% url 'screen4' %}" class="list-group-item no-border background menu-item {% if title == 'Page 4' %} active {% endif %}" >
+                <img src='{% static "images/img1.png" %}' class="img-thumbnail" >
+            </a>
+        </div>
+        <!-- Right Side Content Area -->
+        <div class="col-md-10 background">
           {% block body %} {% endblock %}
-      </div>
+        </div>
     </div>
-  </div>
 </div>
 
 
